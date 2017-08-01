@@ -10,7 +10,7 @@ shinyServer(function(input, output) {
     
     # fit a linear model
     modelFit <- reactive({
-        modelFit <- lm(mpg ~ ., data = mtcarsSelect())
+        lm(mpg ~ ., data = mtcarsSelect())
     })
     
     # Show statistics of the fitted model
