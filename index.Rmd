@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview
 
-For the course 9, "Developing Data Products", which is part of the Data science specializtion on Coursera, a web app was created with the Shiny package. The idea behind it stems from course 7 (Regression Models) in which a model had to be build for the (dependent) variable `mpg` of the `mtcars` dataset. The key question then was whether type of transmission (variable `am`, automatic of manual) is a factor that influences `mpg`. At that time, it meant just typing another model definition and evaluating the result over and over again.
+For the course 9, "Developing Data Products", which is part of the Data science specializtion on Coursera, a web app was created with the Shiny package. The idea behind it stems from course 7 (Regression Models) in which a model had to be build for the (dependent) variable `mpg` (miles per gallon) of the `mtcars` dataset. The key question then was whether type of transmission (variable `am`, automatic of manual) is a factor that influences `mpg`. At that time, it meant just typing another model definition and evaluating the result over and over again.
 
 But genoeg blabla for now
 
@@ -27,8 +27,21 @@ Some links:
 
 ## Example calculation
 
+Below an example calcuation is made with `mpg` (miles per gallon) as dependent variable and `am` (transmission type) and `wt` (weight) as covariates.
+
+Dit is nog ontzettend lelijk: te veel code en uitvoer : inperken, alleen R^2 of zo laten zien, en vermelden dat echte app meer laat zien. Plot naar volgende slide.
+
 ```{r cars, echo = TRUE}
-summary(cars)
+mtcarsSelect <- mtcars[, c("mpg", "am", "wt")]
+modelFit <- lm(mpg ~ ., data = mtcarsSelect)
+# Show statistics of the fitted model
+summary(modelFit)
+# Plot predicted values (by model) against observed values
+pred <- predict(modelFit)
+plot(x = mtcarsSelect$mpg, y = pred, xlab = "MPG data",
+     ylab = "MPG predict", bty = "n", pch = 16,
+     xlim = c(10, 35), ylim = c(10, 35))
+
 ```
 
 ## Slide with Plot
