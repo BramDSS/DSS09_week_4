@@ -1,0 +1,39 @@
+---
+title: "Modelbuild app"
+author: "Bram van Dam"
+date: "August 1, 2017"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+For the course 9, "Developing Data Products", which is part of the Data science specializtion on Coursera, a web app was created with the Shiny package. The idea behind it stems from course 7 (Regression Models) in which a model had to be build for the (dependent) variable `mpg` of the `mtcars` dataset. The key question then was whether type of transmission (variable `am`, automatic of manual) is a factor that influences `mpg`. At that time, it meant just typing another model definition and evaluating the result over and over again.
+
+But genoeg blabla for now
+
+Some links:
+
+
+
+## What the app does
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Example calculation
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
