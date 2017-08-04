@@ -1,16 +1,16 @@
 library(shiny)
+library(markdown)
 
 # Define UI for application 
 shinyUI(fluidPage(
     
     # Application title
-    titlePanel("Make a model"),
+    titlePanel("Build a model for mpg"),
     
     # Sidebar with checkbox input for variables to be used in linear model 
     sidebarLayout(
         sidebarPanel(
-            h3("Choose the variables for the model:"),
-            checkboxGroupInput("variable", "Variables to show:",
+            checkboxGroupInput("variable", "Select covariates for the model:",
                                c("Cylinders" = "cyl",
                                  "Displacement (cubic inches)" = "disp",
                                  "Gross horsepower" = "hp",
@@ -28,7 +28,7 @@ shinyUI(fluidPage(
         # Show documentation, the selected data, the fit and some plots
         mainPanel(
             tabsetPanel(type = "tab",
-                        tabPanel("Documentation", includeMarkdown("Doc_Ds09Wk4.md")),
+                        tabPanel("Documentation", includeMarkdown("docds09wk4.md")),
                         tabPanel("Summary data", verbatimTextOutput("Summary")),
                         tabPanel("Model fit", verbatimTextOutput("Model")),
                         tabPanel("Plots",
@@ -41,3 +41,4 @@ shinyUI(fluidPage(
         )
     )
 ))
+

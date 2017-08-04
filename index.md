@@ -40,11 +40,34 @@ The key question then was whether type of transmission (variable `am`, automatic
 ## Example calculation
 
 Below an example calcuation is made with `mpg` (miles per gallon) as dependent variable and `am` (transmission type) and `wt` (weight) as covariates.
-```{r example, echo = TRUE}
+
+```r
 mtcarsSelect <- mtcars[, c("mpg", "am", "wt")]
 modelFit <- lm(mpg ~ ., data = mtcarsSelect)
 # Show statistics of the fitted model
 summary(modelFit)
+```
+
+```
+## 
+## Call:
+## lm(formula = mpg ~ ., data = mtcarsSelect)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.5295 -2.3619 -0.1317  1.4025  6.8782 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 37.32155    3.05464  12.218 5.84e-13 ***
+## am          -0.02362    1.54565  -0.015    0.988    
+## wt          -5.35281    0.78824  -6.791 1.87e-07 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 3.098 on 29 degrees of freedom
+## Multiple R-squared:  0.7528,	Adjusted R-squared:  0.7358 
+## F-statistic: 44.17 on 2 and 29 DF,  p-value: 1.579e-09
 ```
 
 --- .class #id .smallcode
@@ -52,10 +75,13 @@ summary(modelFit)
 ## Slide with Plot
 
 The plot of predicted versus data mpg is as follows.
-```{r plotje, fig.height=4, fig.width=6}
+
+```r
 # Plot predicted values (by model) against observed values
 pred <- predict(modelFit)
 plot(x = mtcarsSelect$mpg, y = pred, xlab = "MPG data",
      ylab = "MPG predict", bty = "n", pch = 16,
      xlim = c(10, 35), ylim = c(10, 35))
 ```
+
+![plot of chunk plotje](figure/plotje-1.png)

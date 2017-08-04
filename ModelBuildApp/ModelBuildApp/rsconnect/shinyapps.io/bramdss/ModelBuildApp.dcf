@@ -1,0 +1,11 @@
+name: ModelBuildApp
+title: ModelBuildApp
+account: bramdss
+server: shinyapps.io
+appId: 201552
+bundleId: 925096
+url: https://bramdss.shinyapps.io/ModelBuildApp/
+when: 1501699513.6744
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: docds09wk4.txt
